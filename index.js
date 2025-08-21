@@ -48,18 +48,18 @@ client.on('interactionCreate', async interaction => {
         const result = await collection.findOneAndUpdate(
         {},
         { $inc: { counter: 1} },
-        { returnDocument: "after", upsert: true }
+        { upsert: true }
         );
-
+        const doc = await collection.findOne({});
         if(interaction.user.id === '477903313594089473'){
-            interaction.reply(`did j ${result.value.counter} times`)
+            interaction.reply(`did j ${doc.counter} times`)
         }else{
-            interaction.reply(`did j ${result.value.counter} times (blu edition)`)
+            interaction.reply(`did j ${doc.counter} times (blu edition)`)
         }
     }catch(e){
         console.error(`[ERROR] ${e}`);
         if(interaction.user.id === process.env.OWNER_ID||'1164322893438648401'){
-            interaction.reply({content:'Error: ```'+e.message+'```', ephemeral: true})
+            interaction.reply({content:'Error: ```'+e+'```', ephemeral: true})
         }else{
             interaction.reply('There was an error doing j :sad: try again later.')
         }
