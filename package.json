@@ -1,0 +1,29 @@
+{
+  "name": "do-j",
+  "version": "1.0.0",
+  "description": "A discord bot for doing j",
+  "main": "index.js",
+  "scripts": {
+    "test": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LordCat0/do-j.git"
+  },
+  "keywords": [
+    "j",
+    "doj",
+    "discord"
+  ],
+  "author": "LordCat0",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/LordCat0/do-j/issues"
+  },
+  "homepage": "https://github.com/LordCat0/do-j#readme",
+  "dependencies": {
+    "discord.js": "^14.22.0",
+    "dotenv": "^17.2.1",
+    "mongodb": "^6.18.0"
+  }
+}
