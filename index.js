@@ -16,6 +16,7 @@ if(!process.env.MONGO_URL)
     console.warn('[WARNING] Missing ENV: MONGO_URL, bot will continue in testing mode')
 
 const initMongo = async() => {
+    if(!process.env.MONGO_URL) return
     const mongo = new MongoClient(process.env.MONGO_URL);
     await mongo.connect();
     db = mongo.db('do-j');
@@ -67,4 +68,4 @@ client.on('interactionCreate', async interaction => {
 
 })
 
-client.login(process.env.DISCORD_TOKEN)
+initMongo().then(() => client.login(process.env.DISCORD_TOKEN))
