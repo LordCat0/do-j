@@ -4,7 +4,8 @@
   "description": "A discord bot for doing j",
   "main": "index.js",
   "scripts": {
-    "test": "node index.js"
+    "test": "node index.js",
+    "register-cmds": "node slashcommands.js"
   },
   "repository": {
     "type": "git",
