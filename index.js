@@ -52,9 +52,9 @@ client.on('interactionCreate', async interaction => {
         );
         const doc = await collection.findOne({});
         if(interaction.user.id === '477903313594089473'){
-            interaction.reply(`did j ${doc.counter} times`)
-        }else{
             interaction.reply(`did j ${doc.counter} times (blu edition)`)
+        }else{
+            interaction.reply(`did j ${doc.counter} times`)
         }
     }catch(e){
         console.error(`[ERROR] ${e}`);
