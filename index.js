@@ -79,11 +79,10 @@ client.on('interactionCreate', async interaction => {
                     .find()
                     .sort({ count: -1 })
                     .limit(5)
-                    .toArray()
-                    .map((u, i) => getLeaderboardText(u.count, i+1));
+                    .toArray();
                 const embed = new EmbedBuilder()
                     .setColor(embedColor)
-                    .setDescription(topUsers.join("\n"))
+                    .setDescription(topUsers.map((u, i) => getLeaderboardText(u.count, i+1)).join("\n"))
                     .setTimestamp(Date.now());
                 interaction.reply({embeds: [embed]});
                 break;
