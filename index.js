@@ -80,10 +80,13 @@ client.on('interactionCreate', async interaction => {
                     .sort({ count: -1 })
                     .limit(5)
                     .toArray();
+                const descriptions = await Promise.all(
+                    topUsers.map((u, i) => getLeaderboardText(u.count, i+1)).join("\n")
+                );
                 const embed = new EmbedBuilder()
                     .setColor(embedColor)
                     .setTitle('Top 5 j do-ers')
-                    .setDescription(topUsers.map(async(u, i) => await getLeaderboardText(u.count, i+1)).join("\n"))
+                    .setDescription(descriptions)
                     .setTimestamp(Date.now());
                 interaction.reply({embeds: [embed]});
                 break;
