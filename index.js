@@ -82,7 +82,8 @@ client.on('interactionCreate', async interaction => {
                     .toArray();
                 const embed = new EmbedBuilder()
                     .setColor(embedColor)
-                    .setDescription(topUsers.map((u, i) => getLeaderboardText(u.count, i+1)).join("\n"))
+                    .setTitle('Top 5 j do-ers')
+                    .setDescription(topUsers.map(async(u, i) => await getLeaderboardText(u.count, i+1)).join("\n"))
                     .setTimestamp(Date.now());
                 interaction.reply({embeds: [embed]});
                 break;
